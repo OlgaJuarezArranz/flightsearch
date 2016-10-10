@@ -1,0 +1,14 @@
+CREATE TABLE public.days_prior_departure_date
+(
+    days_prior_id integer NOT NULL,
+    days_prior_description character varying,
+    days_prior_base_price double precision,
+    PRIMARY KEY (days_prior_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.days_prior_departure_date
+    OWNER to lastminute;

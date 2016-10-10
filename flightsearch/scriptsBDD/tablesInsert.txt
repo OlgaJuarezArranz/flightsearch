@@ -1,0 +1,139 @@
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (1,'MAD','Madrid');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (2,'BCN','Barcelona');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (3,'LHR','London');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (4,'CDG','Paris');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (5,'FRA','Frakfurt');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (6,'IST','Istanbul');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (7,'AMS','Amsterdam');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (8,'FCO','Rome');
+INSERT INTO airports (airport_id,airport_iata_code,airport_city)
+VALUES (9,'CPH','Copenhagen');
+
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (1, 'IB', 'Iberia', 10.00);
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (2, 'BA', 'British Airways', 15.00);
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (3, 'LH', 'Lufthansa', 7.00);
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (4, 'FR', 'Ryanair', 20.00);
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (5, 'VY', 'Vueling', 10.00);
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (6, 'TK', 'Turkish Airlines', 5.00);
+INSERT INTO airlines(airline_id, airline_iata_code, airline_name, airline_infant_price)
+VALUES (7, 'U2', 'Easyjet', 19.90);
+
+INSERT INTO days_prior_departure_date (days_prior_id,days_prior_description,days_prior_base_price)
+VALUES (1,'more than 30',0.80);
+INSERT INTO days_prior_departure_date (days_prior_id,days_prior_description,days_prior_base_price)
+VALUES (2,'30 - 16',1.00);
+INSERT INTO days_prior_departure_date (days_prior_id,days_prior_description,days_prior_base_price)
+VALUES (3,'15 - 3',1.20);        
+INSERT INTO days_prior_departure_date (days_prior_id,days_prior_description,days_prior_base_price)
+VALUES (4,'less than 3',1.50);
+
+INSERT INTO passenger_types (passenger_type_id,passenger_type_description,passenger_type_price,passenger_type_days_rule)
+VALUES (1,'adult',1.00,true);
+INSERT INTO passenger_types (passenger_type_id,passenger_type_description,passenger_type_price,passenger_type_days_rule)
+VALUES (2,'child',0.67,true);
+INSERT INTO passenger_types (passenger_type_id,passenger_type_description,passenger_type_price,passenger_type_days_rule)
+VALUES (3,'infant',0,false);
+
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (1,9,5,'IB2818',186);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (2,9,3,'U23631',152);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (3,4,1,'IB8482',295);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (4,2,5,'FR7521',150);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (5,9,8,'TK4667',137);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (6,9,8,'U24631',268);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (7,8,4,'VY4335',158);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (8,3,6,'TK8891',250);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (9,5,7,'U24107',237);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (10,9,2,'U22593',218);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (11,2,6,'VY9890',178);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (12,7,9,'TK4927',290);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (13,8,1,'BA1164',118);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (14,9,3,'BA7710',138);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (15,2,7,'U24985',191);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (16,1,4,'IB9961',128);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (17,3,5,'LH2118',165);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (18,6,5,'IB8911',180);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (19,7,5,'TK2372',197);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (20,5,6,'LH4145',169);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (21,1,4,'IB6112',112);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (22,9,5,'LH1678',298);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (23,3,9,'LH6620',217);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (24,1,3,'TK4199',186);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (25,1,4,'IB7403',253);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (26,5,9,'BA4369',109);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (27,2,1,'IB2171',259);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (28,6,3,'LH6412',197);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (29,6,1,'LH1115',160);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (30,3,3,'VY8162',285);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (31,5,3,'BA8162',205);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (32,7,8,'BA7610',168);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (33,3,6,'LH1085',148);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (34,8,5,'U21423',274);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (35,9,1,'U23282',113);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (36,4,9,'LH5778',263);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (37,9,4,'BA2777',284);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (38,2,3,'TK4375',208);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (39,1,8,'LH8408',149);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (40,7,6,'IB4563',109);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (41,3,8,'LH5174',251);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (42,1,2,'BA9569',232);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (43,7,5,'TK2659',248);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (44,3,4,'IB2771',289);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (45,6,1,'IB8688',150);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (46,9,7,'TK8355',137);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (47,8,4,'VY2974',111);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (48,7,5,'LH5909',113);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (49,9,2,'FR7949',176);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (50,2,9,'U27858',237);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (51,5,7,'LH2320',288);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (52,3,2,'VY4633',149);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (53,7,6,'IB7289',163);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (54,5,3,'IB9443',254);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (55,6,8,'LH4948',176);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (56,6,2,'TK5558',211);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (57,2,2,'BA9409',215);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (58,6,7,'FR9261',267);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (59,4,6,'IB7181',227);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (60,3,2,'TK1446',217);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (61,8,5,'TK2793',175);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (62,7,9,'FR1491',284);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (63,6,2,'IB9219',279);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (64,1,7,'TK7871',159);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (65,8,7,'VY4840',260);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (66,1,5,'BA8982',171);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (67,6,3,'U23526',254);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (68,5,1,'BA6773',157);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (69,4,9,'IB5257',299);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (70,9,4,'LH8545',230);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (71,3,7,'IB4737',110);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (72,2,1,'LH5496',293);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (73,4,3,'U29718',103);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (74,3,7,'BA9561',253);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (75,5,3,'TK3167',118);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (76,6,5,'FR4727',108);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (77,9,6,'LH6320',115);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (78,3,7,'BA6657',122);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (79,3,5,'TK5342',295);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (80,6,3,'IB4938',226);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (81,4,2,'VY9791',289);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (82,1,3,'IB4124',272);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (83,5,1,'BA7842',121);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (84,7,8,'VY5092',178);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (85,4,3,'BA9813',171);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (86,5,6,'BA2421',226);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (87,6,9,'U28059',262);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (88,1,7,'LH7260',191);
+INSERT INTO flights (flight_id,flight_origin_airport_id,flight_destination_airport_id,flight_code,flight_base_price) VALUES (89,4,9,'TK2044',186);

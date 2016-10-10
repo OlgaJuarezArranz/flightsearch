@@ -1,0 +1,19 @@
+-- Table: flights
+
+-- DROP TABLE flights;
+
+CREATE TABLE flights
+(
+  flight_id integer NOT NULL,
+  flight_origin_airport_id integer NOT NULL,
+  flight_destination_airport_id integer NOT NULL,
+  flight_code character varying NOT NULL,
+  flight_base_price integer NOT NULL,
+  CONSTRAINT flights_pkey PRIMARY KEY (flight_id)
+  
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE flights
+  OWNER TO lastminute;

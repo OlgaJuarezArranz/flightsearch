@@ -1,0 +1,15 @@
+CREATE TABLE public.airlines
+(
+    airline_id integer NOT NULL,
+    airline_iata_code character varying NOT NULL,
+    airline_name character varying,
+    airline_infant_price double precision NOT NULL,
+    PRIMARY KEY (airline_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.airlines
+    OWNER to lastminute;

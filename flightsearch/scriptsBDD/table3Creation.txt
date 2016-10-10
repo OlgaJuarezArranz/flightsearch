@@ -1,0 +1,14 @@
+CREATE TABLE public.airports
+(
+    airport_id integer NOT NULL,
+    airport_iata_code character varying NOT NULL,
+    airport_city character varying,
+    PRIMARY KEY (airport_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.airpots
+    OWNER to lastminute;

@@ -1,0 +1,15 @@
+CREATE TABLE public.passenger_types
+(
+    passenger_type_id integer NOT NULL,
+    passenger_type_description character varying,
+    passenger_type_price double precision,
+    passenger_type_days_rule boolean NOT NULL,
+    PRIMARY KEY (passenger_type_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.passenger_types
+    OWNER to lastminute;
