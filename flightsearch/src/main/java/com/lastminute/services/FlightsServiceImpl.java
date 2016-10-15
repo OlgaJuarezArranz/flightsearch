@@ -53,6 +53,9 @@ public class FlightsServiceImpl implements FlightsService {
 
 	@Override
 	public List<FoundFlights> foundAndCalculateFlightsAndPrices(Search search) throws Exception {
+		// quitar 
+		Logger.getLogger(getClass().getName()).info(" *********************** llego aqui desde el test ");
+		// fin quitar
 		List<Integer> cityIdsLits = airportsDAO.findcityIdsList(search.getOriginAirport(),
 				search.getDestinationAirport());
 		List<Flights> flightsList = findFlights(cityIdsLits);

@@ -10,3 +10,6 @@ flightsearch/.gitignore
 flightsearch/.project
 flightsearch/.settings/.jsdtscope
 flightsearch/.settings/oracle.eclipse.tools.webtier.ui.prefs
+flightsearch/.settings/org.eclipse.ltk.core.refactoring.prefs
+flightsearch/.settings/org.eclipse.m2e.wtp.prefs
+flightsearch/.settings/org.eclipse.wst.ws.service.policy.prefs
