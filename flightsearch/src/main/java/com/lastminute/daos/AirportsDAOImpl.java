@@ -33,12 +33,7 @@ public class AirportsDAOImpl extends AbstractDAO<Integer, Airports> implements A
 		criteria.add(Restrictions.in("airportCity", values));
 		List<Integer> cityIdsList = new ArrayList<Integer>();
 		List<Airports> airportsList = (List<Airports>) criteria.list();
-		// quitar
-		for (int i = 0; i < airportsList.size(); i++) {
-			Logger.getLogger(getClass().getName()).info(" *** la lista de  de los aeropuertos : "
-					+ airportsList.get(i).getAirportId() + " " + airportsList.get(i).getAirportCity());
-		}
-		// fin quitar
+		
 		Map<String, Integer> cityMap = new HashMap<String, Integer>();
 		for (Airports a : airportsList) {
 			if (a.getAirportCity().equals(originCity)) {
@@ -50,12 +45,7 @@ public class AirportsDAOImpl extends AbstractDAO<Integer, Airports> implements A
 		}
 		cityIdsList.add(0, cityMap.get(originCity));
 		cityIdsList.add(1, cityMap.get(destinationCity));
-		// quitar
-		for (int i = 0; i < cityIdsList.size(); i++) {
-			Logger.getLogger(getClass().getName())
-					.info(" *** la lista de ids de los aeropuertos en orden: " + cityIdsList.get(i));
-		}
-		// fin quitar
+	
 		return cityIdsList;
 	}
 }

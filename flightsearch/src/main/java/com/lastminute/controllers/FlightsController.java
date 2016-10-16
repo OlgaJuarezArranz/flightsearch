@@ -38,20 +38,11 @@ public class FlightsController {
 
     @RequestMapping(value = { "/allflights" }, method = RequestMethod.POST)
     public String searchPrices(Search search, ModelMap model) {
-        // quitar
-        Logger.getLogger(getClass().getName()).info("***-------" + search);
-        Logger.getLogger(getClass().getName()).info("***-------" + search.getClass());
-        Logger.getLogger(getClass().getName()).info("***-------" + search.getOriginAirport());
-        // fin quitar
-
+        
         try {
-            // quitar
-            Logger.getLogger(getClass().getName()).info("***1");
-            // fin quitar
+           
             List<FoundFlights> foundFlightsList = service.foundAndCalculateFlightsAndPrices(search);
-            // quitar
-            Logger.getLogger(getClass().getName()).info("***2");
-            // fin quitar
+            
             model.addAttribute("foundFlightsList", foundFlightsList);
            
         } catch (Exception ex) {

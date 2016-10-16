@@ -88,7 +88,7 @@ public class FlightsControllerTest {
 	public void showFormTest() throws Exception {
 
 		ModelMap model = new ModelMap();
-
+		
 		mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"))
 				.andExpect(forwardedUrl("/WEB-INF/views/index.jsp"))
 				.andExpect(model().attribute("search", instanceOf(Search.class)))
@@ -116,9 +116,9 @@ public class FlightsControllerTest {
 		foundFlightsList.add(foundFlights2);
 		foundFlightsList.add(foundFlights3);
 		ModelMap model = new ModelMap();
-		
+
 		when(service.foundAndCalculateFlightsAndPrices(Mockito.any(Search.class))).thenReturn(foundFlightsList);
-	
+
 		mockMvc.perform(post("/allflights").contentType(MediaType.APPLICATION_FORM_URLENCODED)
 				.param("originAirport", "Amsterdam").param("destinationAirport", "Frakfurt")
 				.param("adultPassengerNum", "1").param("childPassengerNum", "0").param("infantPassengerNum", "0")

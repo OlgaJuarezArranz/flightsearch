@@ -53,42 +53,20 @@ public class FlightsServiceImpl implements FlightsService {
 
 	@Override
 	public List<FoundFlights> foundAndCalculateFlightsAndPrices(Search search) throws Exception {
-		// quitar 
-		Logger.getLogger(getClass().getName()).info(" *********************** llego aqui desde el test ");
-		// fin quitar
+	
 		List<Integer> cityIdsLits = airportsDAO.findcityIdsList(search.getOriginAirport(),
 				search.getDestinationAirport());
 		List<Flights> flightsList = findFlights(cityIdsLits);
-		// quitar
-		for (int i = 0; i < flightsList.size(); i++) {
-			Logger.getLogger(getClass().getName())
-					.info(" /-/-/ la lista de los vuelos encontrados entre la ciudad de origen y la ciudad de destino: id= "
-							+ flightsList.get(i).getAirportsByFlightDestinationAirportId()
-							+ " id de la ciudad de origen= " + flightsList.get(i).getAirportsByFlightOriginAirportId()
-							+ " id de la ciudad de destino= "
-							+ flightsList.get(i).getAirportsByFlightDestinationAirportId() + " codigo de vuelo= "
-							+ flightsList.get(i).getFlightCode() + " precio base del vuelo= "
-							+ flightsList.get(i).getFlightBasePrice());
-		}
-		// fin quitar
+	
 		Map<Integer, PassengerTypes> passengerRules = lookForRulesApplied(search);
 		double percentagePriceDays = lookForPercentage(search.getDaysPriorDepartureNum());
 		Map<String, Double> infantPricesMap = new HashMap<String, Double>();
-		// quitar
-
-		Logger.getLogger(getClass().getName()).info(
-				" /-/-/ numero de bebes en la busqueda desde el servicio de vuelos: " + search.getInfantPassengerNum());
-		// fin quitar
+	
 		if (search.getInfantPassengerNum() != 0) {
 			List<String> airlinesCodeList = new ArrayList<String>();
 			for (int i = 0; i < flightsList.size(); i++) {
 				String code = flightsList.get(i).getFlightCode().substring(0, 2);
-				// quitar
-
-				Logger.getLogger(getClass().getName()).info(" /-/-/ numero de vuelo: "
-						+ flightsList.get(i).getFlightCode() + " codigo de la aerolinea: " + code);
-				// fin quitar
-				airlinesCodeList.add(code);
+						airlinesCodeList.add(code);
 			}
 			infantPricesMap = lookForInfantPrice(airlinesCodeList);
 		}
@@ -107,6 +85,7 @@ public class FlightsServiceImpl implements FlightsService {
 
 	private Map<String, Double> lookForInfantPrice(List<String> airlinesCodeList) {
 		return airlinesDAO.lookForInfantPrice(airlinesCodeList);
+
 	}
 
 	private List<FoundFlights> calculate(List<Flights> flightsList, Map<Integer, PassengerTypes> passengerRules,
@@ -124,14 +103,6 @@ public class FlightsServiceImpl implements FlightsService {
 
 		foundFlightsList = calculatePrice(foundFlightsList, flightsList, passengerRules, percentagePriceDays, search,
 				infantPricesMap);
-		// quitar
-		for (FoundFlights ff : foundFlightsList) {
-			Logger.getLogger(getClass().getName())
-					.info(" /-/-/ la lista de los vuelos encontrados con su precio para devolver: codigo= "
-							+ ff.getFoundFlightCode() + " precio= " + ff.getFoundFlightTotalPrice());
-		}
-		// fin quitar
-
 		return foundFlightsList;
 
 	}
@@ -145,48 +116,36 @@ public class FlightsServiceImpl implements FlightsService {
 		List<Double> numPsgrAndrulesPsgrTypesList = new ArrayList<Double>(6);
 
 		if (passengerRules.containsKey(one) && passengerRules.containsKey(two)) {
-			// quitar
-			Logger.getLogger(getClass().getName()).info("*******************");
-			Logger.getLogger(getClass().getName()).info("no hay bebes, primera parte del if");
-			Logger.getLogger(getClass().getName()).info("*******************");
-			// fin quitar
+		
 			numPsgrAndrulesPsgrTypesList.add(0, new Double(search.getAdultPassengerNum()));
 			numPsgrAndrulesPsgrTypesList.add(1, new Double(passengerRules.get(one).getPassengerTypePrice()));
 			numPsgrAndrulesPsgrTypesList.add(2, new Double(search.getChildPassengerNum()));
 			numPsgrAndrulesPsgrTypesList.add(3, new Double(passengerRules.get(two).getPassengerTypePrice()));
 			numPsgrAndrulesPsgrTypesList.add(4, new Double(search.getInfantPassengerNum()));
-			
+
 			foundFlightsList = calculateAndIterate(foundFlightsList, flightsList, numPsgrAndrulesPsgrTypesList,
 					percentagePriceDays, infantPricesMap);
 
 		} else if (passengerRules.containsKey(one)) {
-			// quitar
-			Logger.getLogger(getClass().getName()).info("*******************");
-			Logger.getLogger(getClass().getName()).info("no hay bebes, segunda parte del if");
-			Logger.getLogger(getClass().getName()).info("*******************");
-			// fin quitar
+		
 			numPsgrAndrulesPsgrTypesList.add(0, new Double(search.getAdultPassengerNum()));
 			numPsgrAndrulesPsgrTypesList.add(1, new Double(passengerRules.get(one).getPassengerTypePrice()));
 			numPsgrAndrulesPsgrTypesList.add(2, new Double(0));
 			numPsgrAndrulesPsgrTypesList.add(3, new Double(0));
 			numPsgrAndrulesPsgrTypesList.add(4, new Double(search.getInfantPassengerNum()));
-			
+
 			foundFlightsList = calculateAndIterate(foundFlightsList, flightsList, numPsgrAndrulesPsgrTypesList,
 					percentagePriceDays, infantPricesMap);
 
 		} else if (passengerRules.containsKey(two)) {
-			// quitar
-			Logger.getLogger(getClass().getName()).info("*******************");
-			Logger.getLogger(getClass().getName()).info("no hay bebes, tercera parte del if");
-			Logger.getLogger(getClass().getName()).info("*******************");
-			// fin quitar
+		
 
 			numPsgrAndrulesPsgrTypesList.add(0, new Double(0));
 			numPsgrAndrulesPsgrTypesList.add(1, new Double(0));
 			numPsgrAndrulesPsgrTypesList.add(2, new Double(search.getChildPassengerNum()));
 			numPsgrAndrulesPsgrTypesList.add(3, new Double(passengerRules.get(two).getPassengerTypePrice()));
 			numPsgrAndrulesPsgrTypesList.add(4, new Double(search.getInfantPassengerNum()));
-			
+
 			foundFlightsList = calculateAndIterate(foundFlightsList, flightsList, numPsgrAndrulesPsgrTypesList,
 					percentagePriceDays, infantPricesMap);
 		}
@@ -213,14 +172,12 @@ public class FlightsServiceImpl implements FlightsService {
 					+ (numPsgrAndrulesPsgrTypesList.get(2) * numPsgrAndrulesPsgrTypesList.get(3)
 							* flightsList.get(i).getFlightBasePrice() * percentagePriceDays
 							+ numPsgrAndrulesPsgrTypesList.get(4) * numPsgrAndrulesPsgrTypesList.get(5));
-			// quitar
-			Logger.getLogger(getClass().getName()).info(" /-/-/ precio total calculado por iteracion: " + price);
-			// // fin quitar
+			
 			foundFlights.setFoundFlightTotalPrice(price);
 			foundFlightsList.add(foundFlights);
 		}
 
 		return foundFlightsList;
 	}
-	
+
 }

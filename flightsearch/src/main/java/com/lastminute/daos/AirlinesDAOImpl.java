@@ -20,6 +20,10 @@ import com.lastminute.entities.Airlines;
  */
 @Repository("airlinesDAO")
 public class AirlinesDAOImpl extends AbstractDAO<Integer, Airlines> implements AirlinesDAO {
+	
+	 public AirlinesDAOImpl() {
+		
+	}
 
 	@Override
 	public Map<String, Double> lookForInfantPrice(List<String> airlinesCodeList) {

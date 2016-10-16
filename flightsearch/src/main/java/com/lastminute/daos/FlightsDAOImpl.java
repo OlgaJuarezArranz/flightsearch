@@ -25,12 +25,7 @@ public class FlightsDAOImpl extends AbstractDAO<Integer, Flights> implements Fli
 
 	@Override
 	public List<Flights> findFlights(List<Integer> cityIdsList) throws Exception {
-		//quitar
-		Logger.getLogger(getClass().getName()).info("***1");
-		for (Integer i: cityIdsList){
-			Logger.getLogger(getClass().getName()).info("*** en el for: " + i);
-		}
-		//fin quitar
+
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("airportsByFlightOriginAirportId", cityIdsList.get(0)));
 		criteria.add(Restrictions.eq("airportsByFlightDestinationAirportId", cityIdsList.get(1)));
@@ -40,9 +35,7 @@ public class FlightsDAOImpl extends AbstractDAO<Integer, Flights> implements Fli
 		try {
 		foundFlightsList = criteria.list();
 		} catch (Exception ex) {
-			//quitar
-			Logger.getLogger(getClass().getName()).info("***4");
-			//fin quitar
+			
 			throw new Exception();
 		}
 		return foundFlightsList;
