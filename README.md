@@ -1,8 +1,7 @@
 # flightsearch
 
 Prueba para lastminute.com
-El código está por refactorizar, especialmente uno o dos métodos. Se hace test de los dos métodos del controlador. 
-Falta añadir test para los servicios ... 
+
 
 
 Tecnologías utilizadas:
