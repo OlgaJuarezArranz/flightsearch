@@ -1,6 +1,6 @@
 # flightsearch
 
-Prueba para lastminute.com
+
 
 
 
@@ -16,5 +16,5 @@ spring-test-mvc (versión en pom.xml),
 
 Base de datos:
 
-postgresql 9.13,
+postgresql 9.1.3,
 pgAdminIII,
